@@ -6,7 +6,6 @@ This module provides the core functionality for ChatTTS.
 import torch
 import numpy as np
 from typing import Optional, List, Union
-import warnings
 
 
 class ChatTTS:

@@ -6,6 +6,7 @@ Simple tests for ChatTTS
 import unittest
 import numpy as np
 import os
+import tempfile
 from chattts import ChatTTS, load_model
 
 
@@ -47,15 +48,19 @@ class TestChatTTS(unittest.TestCase):
         text = "Test audio"
         audio = self.model.generate(text)
         
-        output_path = "/tmp/test_output.wav"
-        self.model.save_audio(audio, output_path)
+        # Use tempfile for cross-platform compatibility
+        with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as f:
+            output_path = f.name
         
-        # Check file was created
-        self.assertTrue(os.path.exists(output_path))
-        
-        # Clean up
-        if os.path.exists(output_path):
-            os.remove(output_path)
+        try:
+            self.model.save_audio(audio, output_path)
+            
+            # Check file was created
+            self.assertTrue(os.path.exists(output_path))
+        finally:
+            # Clean up
+            if os.path.exists(output_path):
+                os.remove(output_path)
             
     def test_generation_parameters(self):
         """Test that generation parameters are accepted."""
