@@ -40,8 +40,14 @@ Thumbs.db
 # Models and outputs
 models/
 outputs/
+output/
 *.wav
 *.mp3
+
+# Test outputs
+test_output*.wav
+batch_output.wav
+sample_output.wav
 
 # Logs
 *.log

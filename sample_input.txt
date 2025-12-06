@@ -1,0 +1,12 @@
+Welcome to ChatTTS text-to-speech conversion!
+
+This is a sample text file that you can use to test the ChatTTS functionality.
+You can convert this entire file to speech using the command-line interface.
+
+For example, run:
+python examples/cli.py sample_input.txt -f -o sample_output.wav
+
+The generated speech will sound natural and expressive.
+ChatTTS is a powerful text-to-speech model that can handle various types of text.
+
+Enjoy using zzChatTTS!
