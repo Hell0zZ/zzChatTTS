@@ -4,10 +4,7 @@ Unit tests for zzChatTTS
 
 import unittest
 import numpy as np
-from unittest.mock import Mock, patch, MagicMock
-from pathlib import Path
-import tempfile
-import os
+from unittest.mock import Mock, patch
 
 
 class TestTTSEngine(unittest.TestCase):

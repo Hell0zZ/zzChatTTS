@@ -4,7 +4,6 @@ ChatTTS Text-to-Speech Engine
 
 import ChatTTS
 import torch
-import torchaudio
 import numpy as np
 import soundfile as sf
 from pathlib import Path
@@ -116,26 +115,3 @@ class TTSEngine:
         
         # Save using soundfile
         sf.write(output_path, audio, sample_rate)
-    
-    def generate_with_speaker(
-        self,
-        text: Union[str, List[str]],
-        speaker_embedding: Optional[torch.Tensor] = None,
-        output_path: Optional[str] = None,
-        **kwargs
-    ) -> np.ndarray:
-        """
-        Generate speech with a specific speaker voice.
-        
-        Args:
-            text: Input text or list of texts
-            speaker_embedding: Speaker embedding tensor (None for random)
-            output_path: Optional path to save the output
-            **kwargs: Additional parameters for generate_speech
-            
-        Returns:
-            Generated audio as numpy array
-        """
-        # This is a placeholder for speaker-specific generation
-        # The actual implementation would depend on ChatTTS's speaker control features
-        return self.generate_speech(text, output_path, **kwargs)
